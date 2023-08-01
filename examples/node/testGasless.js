@@ -34,10 +34,11 @@ var {claimed, deposit} = await peanut.getLinkStatus({signer: wallet, link: link}
 console.log("The link is claimed: ", claimed);
 
 // claim link
-const claimTx = await peanut.claimLink({ signer: wallet, link: link });
-console.log("claimTx: ", claimTx.hash);
+const res = await peanut.claimLinkGasless(link, wallet.address, process.env.PEANUT_DEV_API_KEY);
+console.log("res: ", res);
 
 // check status of link again
 await new Promise(r => setTimeout(r, 3000));
 ({claimed, deposit } = await peanut.getLinkStatus({signer: wallet, link: link}));
 console.log("The link is claimed: ", claimed);
+

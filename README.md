@@ -2,13 +2,15 @@
 
 **Send tokens via cryptographically secure links**
 
+NPM package [here](https://www.npmjs.com/package/@squirrel-labs/peanut-sdk-ethersV5). This package makes use of ethers v5. If you're using ethers v6, please refer to [@squirrel-labs/peanut-sdk-ethersv5](https://www.npmjs.com/package/@squirrel-labs/peanut-sdk).
+
 ### Install
 
-`npm i @squirrel-labs/peanut-sdk`
+`npm i @squirrel-labs/peanut-sdk-ethersv5`
 
 or via CDN:
 
-`<script src="https://cdn.jsdelivr.net/npm/@squirrel-labs/peanut-sdk/dist/peanut-sdk.js"></script> `
+`<script src="https://cdn.jsdelivr.net/npm/@squirrel-labs/peanut-sdk-ethersv5/dist/peanut-sdk.js"></script> `
 
 
 ### Usage
@@ -16,10 +18,9 @@ or via CDN:
 Usage is as easy as:
 
 ```
-import peanut from '@squirrel-labs/peanut-sdk';
+import peanut from '@squirrel-labs/peanut-sdk-ethersv5';
 
-// setup signer with ethers v6 (ethersv5, web3js and viem support coming soon!)
-const provider = new ethers.BrowserProvider(window.ethereum, 'any')
+const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 const signer = await provider.getSigner()
 
 // create link
@@ -44,8 +45,6 @@ const response = await peanut.claimLinkGasless(link, wallet.address, process.env
 ```
 Please apply for an api key on telegram/discord for this.
 
-
-If you're using a browser wallet, you will need to use ethersv6 and pass it in to the peanut sdk. ethersv5 compatibility coming soon.
 
 ### Feedback
 

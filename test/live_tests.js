@@ -1,4 +1,4 @@
-// import peanut from '@squirrel-labs/peanut-sdk'; // npm
+// import peanut from '@squirrel-labs/peanut-sdk-ethersv5'; // npm
 import peanut from "../index.js"; // local
 import assert from "assert";
 import { ethers } from "ethersv6";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-// import { peanut } from '@squirrel-labs/peanut-sdk'
-import { peanut } from "@squirrel-labs/peanut-sdk";
+// import { peanut } from '@squirrel-labs/peanut-sdk-ethersv5'
+import { peanut } from "@squirrel-labs/peanut-sdk-ethersv5";
 import { ethers } from "ethers";
 import { useEffect } from "react";
 
@@ -46,7 +46,7 @@ function App() {
     if (isConnected) return;
     if (typeof window.ethereum !== "undefined") {
       window.ethereum.enable();
-      const provider = new ethers.BrowserProvider(window.ethereum, "any");
+      const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
       const signer = await provider.getSigner();
 
       // check chainId, if not goerli, show warning
@@ -97,9 +97,10 @@ function App() {
 
   const claimLinkGasless = async () => {
     if (!signer || !link) return;
+    const address = await signer.getAddress();
     const claimTx = await peanut.claimLinkGasless(
       link,
-      signer.address,
+      address,
       "AbOlrI9htv38pmHPENNoCwDc9lqgCFTP"
     );
     console.log(claimTx);
@@ -125,7 +126,7 @@ function App() {
   return (
     <div style={{ width: "80%", margin: "auto" }}>
     <h1 style={{ textAlign: "center" }}> Peanut SDK Example</h1>
-    <h3 style={{ textAlign: "center" }}> Ethers v6 + React + Vite</h3>
+    <h3 style={{ textAlign: "center" }}> Ethers v5 + React + Vite</h3>
 
 
       <button onClick={connectWallet} style={{ background: "green", margin: "10px" }}>

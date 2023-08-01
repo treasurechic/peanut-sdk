@@ -1,10 +1,10 @@
 // import peanut from "../../index.js"; // local
-// import * as peanut from "@squirrel-labs/peanut-sdk"; // npm
-// import * as peanut from "@squirrel-labs/peanut-sdk"; // npm
-// import { peanut } from '@squirrel-labs/peanut-sdk';
-import peanut from '@squirrel-labs/peanut-sdk';
-// import { peanut } from '@squirrel-labs/peanut-sdk';
-// import * as peanut from '@squirrel-labs/peanut-sdk';
+// import * as peanut from "@squirrel-labs/peanut-sdk-ethersv5"; // npm
+// import * as peanut from "@squirrel-labs/peanut-sdk-ethersv5"; // npm
+// import { peanut } from '@squirrel-labs/peanut-sdk-ethersv5';
+import peanut from '@squirrel-labs/peanut-sdk-ethersv5';
+// import { peanut } from '@squirrel-labs/peanut-sdk-ethersv5';
+// import * as peanut from '@squirrel-labs/peanut-sdk-ethersv5';
 console.log(peanut);
 
 import { ethers } from 'ethers'; // ethers v6

@@ -1,4 +1,4 @@
-import peanut from '@squirrel-labs/peanut-sdk';
+import peanut from '@squirrel-labs/peanut-sdk-ethersv5';
 import { ethers } from 'ethers'; // ethers v5.7.2
 import dotenv from 'dotenv';
 dotenv.config({path: '../../.env'});
@@ -14,7 +14,7 @@ import fs from 'fs/promises';
 async function main() {
     const data = await fs.readFile('./package.json');
     const pjson = JSON.parse(data);
-    console.log(pjson.dependencies['@squirrel-labs/peanut-sdk']);
+    console.log(pjson.dependencies['@squirrel-labs/peanut-sdk-ethersv5']);
 }
 main();
 
