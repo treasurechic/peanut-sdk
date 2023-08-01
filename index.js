@@ -317,8 +317,14 @@ export async function approveSpendERC20(
         // amount = ethers.MaxUint256; // v6
         amount = ethers.constants.MaxUint256;
     }
+    let signerAddress;
+    try {
+        signerAddress = await signer.getAddress();
+    } catch (error) {
+        signerAddress = signer.address;
+    }
     const spender = PEANUT_CONTRACTS[chainId][contractVersion];
-    let allowance = await tokenContract.allowance(signer.address, spender);
+    let allowance = await tokenContract.allowance(signerAddress, spender);
     // convert amount to BigInt and compare to allowance
     // amount = ethers.parseUnits(amount.toString(), tokenDecimals); // v6
     amount = ethers.utils.parseUnits(amount.toString(), tokenDecimals);
@@ -329,7 +335,7 @@ export async function approveSpendERC20(
         const txOptions = await setTxOptions({}, true, chainId, signer);
         const tx = await tokenContract.approve(spender, amount, txOptions);
         const txReceipt = await tx.wait();
-        let allowance = await tokenContract.allowance(signer.address, spender);
+        let allowance = await tokenContract.allowance(signerAddress, spender);
         return { allowance, txReceipt };
     }
 }
@@ -750,7 +756,7 @@ export async function claimLink({ signer, link, recipient = null }) {
     const depositIdx = params.depositIdx;
     const password = params.password;
     if (recipient == null) {
-        recipient = signer.address;
+        recipient = await signer.getAddress();
     }
     const keys = generateKeysFromString(password); // deterministically generate keys from password
     const contract = await getContract(chainId, signer, contractVersion);
