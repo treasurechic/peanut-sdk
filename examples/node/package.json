@@ -13,6 +13,6 @@
   "dependencies": {
     "@squirrel-labs/peanut-sdk": "*",
     "dotenv": "^16.1.4",
-    "ethers": "^6"
+    "ethers": "^5"
   }
 }

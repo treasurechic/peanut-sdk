@@ -19,25 +19,7 @@ const wallet = new ethers.Wallet(
 ////////////////////////////////////////////////////////////
 
 
-// create link
-const { link, txReceipt } = await peanut.createLink({
-  signer: wallet,
-  chainId: CHAINID,
-  tokenAmount: 0.001,
-  tokenType: 0, // 0 for ether, 1 for erc20, 2 for erc721, 3 for erc1155
-  verbose: true,
-});
-
-// get status of link
-await new Promise(r => setTimeout(r, 3000));
-var {claimed, deposit} = await peanut.getLinkStatus({signer: wallet, link: link});
-console.log("The link is claimed: ", claimed);
-
-
-// claim link
-const claimTx = await peanut.claimLink({ signer: wallet, link: link });
-console.log("claimTx: ", claimTx.hash);
-
-await new Promise(r => setTimeout(r, 3000));
-({claimed, deposit } = await peanut.getLinkStatus({signer: wallet, link: link}));
-console.log("The link is claimed: ", claimed);
+let tx = "0x0673075bbe42c4496c9d1ed0e012f522e8bff04ea179f271dc0a9b0c3c0b12b9"
+let chainid = 5
+let txReceipt = await wallet.provider.getTransactionReceipt(tx)
+console.log(peanut.getDepositIdx(txReceipt, chainid))

@@ -11,6 +11,15 @@ import CHAIN_MAP from './data/chainMap.json';
 // package version (from package.json)
 import { version } from './package.json';
 
+// export ethers supported version as well
+// ...
+
+// export default contract version too
+// ...
+
+// export verbosity levels
+// ...
+
 // export all these functions (imported in index.js)
 export {
   PEANUT_ABI_V3,
