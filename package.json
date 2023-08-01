@@ -1,6 +1,6 @@
 {
   "name": "@squirrel-labs/peanut-sdk-ethersv5",
-  "version": "0.0.56",
+  "version": "0.0.57",
   "description": "The Peanut Protocol SDK! Compatible with ethers v5. See examples/ folder",
   "main": "dist/peanut-sdk.node.js",
   "module": "dist/peanut-sdk.browser.js",
