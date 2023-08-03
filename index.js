@@ -872,6 +872,7 @@ const peanut = {
     approveSpendERC20,
     claimLinkGasless,
     version: version,
+    PEANUT_CONTRACTS: PEANUT_CONTRACTS,
     // approveSpendERC721,
     // approveSpendERC1155,
 };
