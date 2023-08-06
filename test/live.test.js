@@ -56,8 +56,8 @@ describe('Peanut SDK LIVE Integration Tests', function () {
 	});
 	describe('goerli', function () {
 		const GOERLI_RPC_URL = 'https://rpc.goerli.eth.gateway.fm';
-		// const goerliProvider = new ethers.JsonRpcProvider(GOERLI_RPC_URL); // v6
-		const goerliProvider = new ethers.utils.JsonRpcProvider(GOERLI_RPC_URL); // v5
+		const goerliProvider = new ethers.JsonRpcProvider(GOERLI_RPC_URL); // v6
+		// const goerliProvider = new ethers.utils.JsonRpcProvider(GOERLI_RPC_URL); // v5
 		const goerliWallet = new ethers.Wallet(TEST_WALLET_PRIVATE_KEY, goerliProvider);
 		const chainId = 5;
 		const tokenAmount = 0.0001;
